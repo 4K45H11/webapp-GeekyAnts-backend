@@ -7,8 +7,10 @@ const ProjectSchema = new mongoose.Schema({
     },
     description:{
         type:String,
-        durationWeeks:Number
     },
+    durationWeeks:{
+        type: Number
+    }
 
 },{timestamps:true})
 

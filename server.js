@@ -12,13 +12,20 @@ app.use(cors())
 app.use(express.json())
 
 //root route
-app.get('/',(req,res)=>{
-    res.status(200).json({message:'Welcome to the project server'})
+app.get('/api',(req,res)=>{
+    res.status(200).json({message:'Welcome to the GeekyAnt server'})
 })
 
 //routes
 
-//server listing and db connection
+app.use('/api/auth',require('./routes/auth.route'))
+app.use('/api/engineers',require('./routes/engineer.route'))
+app.use('/api/projects',require('./routes/project.route'))
+
+app.use('/api/assignments', require('./routes/assignments.route'))
+app.use('/api/users', require('./routes/user.route'))
+
+//server listening and db connection
 
 mongoose.connect(process.env.MONGO_URI)
 .then((res)=>{

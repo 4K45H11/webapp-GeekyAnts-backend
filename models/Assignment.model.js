@@ -11,10 +11,11 @@ const AssignmentSchema = new mongoose.Schema({
         ref: 'Project',
         required:true
     },
-    assigedHoursPerWeek:{
+    assignedHoursPerWeek:{
         type:Number,
         required:true
     }
 },{timestamps:true})
 
 module.exports = mongoose.model('Assignment',AssignmentSchema)
+
